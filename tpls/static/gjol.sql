@@ -1,0 +1,37 @@
+SET NAMES UTF8;
+DROP DATABASE IF EXISTS gjqt;
+#建库
+CREATE DATABASE gjqt CHARSET=UTF8;
+USE gjqt;
+
+#创建论坛资料模块表 forum_module
+CREATE TABLE forum_module(
+	mid INT PRIMARY KEY AUTO_INCREMENT, #编号
+	module VARCHAR(8) #模块名称
+);
+
+#创建论坛各模块详细资料表 forum_details
+CREATE TABLE forum_details(
+	did  INT PRIMARY KEY AUTO_INCREMENT, #编号
+	img VARCHAR(64),#图片
+	theme VARCHAR(64),#主题
+	mid  INT,
+	FOREIGN KEY (mid) REFERENCES forum_module(mid)
+);
+
+#创建论坛各模块下主题表forum_theme
+CREATE TABLE forum_theme(
+	tid  INT PRIMARY KEY AUTO_INCREMENT, #编号
+	subscribe VARCHAR(128),#描述
+	did INT,
+	FOREIGN KEY (did) REFERENCES forum_details(did)
+);
+
+#创建用户表 user
+CREATE TABLE user(
+	uid  INT PRIMARY KEY AUTO_INCREMENT, #编号
+	uname VARCHAR(36) NOT NULL,
+	upwd VARCHAR(48),
+	avatar VARCHAR(128) DEFAULT 'img/avatar/noavatar_big.gif',
+	gender INT DEFAULT 0
+);

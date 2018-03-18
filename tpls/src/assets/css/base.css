@@ -1,0 +1,42 @@
+@charset "utf-8";
+/*通用*/
+body,div {
+    font: 12px "simhei", Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+a,a:hover{
+    text-decoration: none;
+}
+input:focus{
+    outline: 0;
+}
+#nav a {
+    color: #cccccc;
+}
+#nav a:hover{
+    color: #b8b8b8;
+}
+#nav a:focus{
+	color:#0aa1ed;
+}
+ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    list-style: none;
+}
+input {
+    border: none;
+}
+.lf {
+    float: left;
+}
+.rt {
+    float: right;
+}
+.clear:after {
+    content: "";
+    display: table;
+    clear: both;
+}
